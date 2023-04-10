@@ -1,0 +1,77 @@
+Command Line Arguments:
+     dir = uploaded_images/ 
+    arch = resnet 
+ dogfile = dognames.txt
+
+Pet Image Label Dictionary has 4 key-value pairs.
+Below are 4 of them:
+ 1 key:                    Tree_01.jpg  label:                       tree
+ 2 key:                      Dog_1.jpg  label:                        dog
+ 3 key:                      Dog_2.jpg  label:                        dog
+ 4 key:                  Rabbit_01.jpg  label:                     rabbit
+{'Tree_01.jpg': ['tree', 'worm fence, snake fence, snake-rail fence, virginia fence', 0], 'Dog_1.jpg': ['dog', 'doberman, doberman pinscher', 0], 'Dog_2.jpg': ['dog', 'doberman, doberman pinscher', 0], 'Rabbit_01.jpg': ['rabbit', 'wood rabbit, cottontail, cottontail rabbit, rabbit', 1]}
+
+     MATCH:
+
+                 Rabbit_01.jpg: 
+Real:                     rabbit   Classifier: wood rabbit, cottontail, cottontail rabbit, rabbit
+
+ NOT A MATCH:
+
+                   Tree_01.jpg: 
+Real:                       tree   Classifier: worm fence, snake fence, snake-rail fence, virginia fence
+
+                     Dog_1.jpg: 
+Real:                        dog   Classifier:    doberman, doberman pinscher
+
+                     Dog_2.jpg: 
+Real:                        dog   Classifier:    doberman, doberman pinscher
+
+# Total Images 4 # Matches: 1 # NOT Matches: 3
+
+     MATCH:
+
+                 Rabbit_01.jpg: 
+Real:                     rabbit   Classifier: wood rabbit, cottontail, cottontail rabbit, rabbit  
+PetLabelDog: 0  ClassLabelDog: 0
+
+ NOT A MATCH:
+
+                   Tree_01.jpg: 
+Real:                       tree   Classifier: worm fence, snake fence, snake-rail fence, virginia fence  
+PetLabelDog: 0  ClassLabelDog: 0
+
+                     Dog_1.jpg: 
+Real:                        dog   Classifier:    doberman, doberman pinscher  
+PetLabelDog: 1  ClassLabelDog: 1
+
+                     Dog_2.jpg: 
+Real:                        dog   Classifier:    doberman, doberman pinscher  
+PetLabelDog: 1  ClassLabelDog: 1
+
+# Total Images 4 # Matches: 1 # NOT Matches: 3
+
+ ** Statistics from calculates_results_stats() function:
+N Images:  4  N Dog Images:  2  N NotDog Images:  2 
+Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:   0.0
+
+ ** Check Statistics - calculated from this function as a check:
+N Images:  4  N Dog Images:  2  N NotDog Images:  2 
+Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:   0.0
+
+
+*** Results Summary for CNN Model Architecture RESNET ***
+N Images            :   4
+N Dog Images        :   2
+N Not-Dog Images    :   2
+ 
+pct_match 25.0
+pct_correct_dogs 100.0
+pct_correct_breed 0.0
+pct_correct_notdogs 100.0
+
+INCORRECT Dog Breed Assignment:
+Real:                        dog   Classifier:    doberman, doberman pinscher
+Real:                        dog   Classifier:    doberman, doberman pinscher
+
+** Total Elapsed Runtime: 0:0:0
