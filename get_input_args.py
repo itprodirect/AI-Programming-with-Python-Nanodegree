@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/get_input_args.py
-#                                                                             
+#
 # PROGRAMMER: Nick Ferguson
-# DATE CREATED: 2/6/23                                  
+# DATE CREATED: 2/6/23
 # REVISED DATE: 2/26/23
-# PURPOSE: Create a function that retrieves the following 3 command line inputs 
-#          from the user using the Argparse Python module. If the user fails to 
+# PURPOSE: Create a function that retrieves the following 3 command line inputs
+#          from the user using the Argparse Python module. If the user fails to
 #          provide some or all of the 3 inputs, then the default values are
 #          used for the missing inputs. Command Line Arguments:
 #     1. Image Folder as --dir with default value 'pet_images'
@@ -17,17 +17,17 @@
 # Imports python modules
 import argparse
 
-# TODO 1: Define get_input_args function below please be certain to replace None
-#       in the return statement with parser.parse_args() parsed argument 
+
+#       in the return statement with parser.parse_args() parsed argument
 #       collection that you created with this function
-# 
+#
 def get_input_args():
     """
     Retrieves and parses the 3 command line arguments provided by the user when
-    they run the program from a terminal window. This function uses Python's 
-    argparse module to created and defined these 3 command line arguments. If 
-    the user fails to provide some or all of the 3 arguments, then the default 
-    values are used for the missing arguments. 
+    they run the program from a terminal window. This function uses Python's
+    argparse module to created and defined these 3 command line arguments. If
+    the user fails to provide some or all of the 3 arguments, then the default
+    values are used for the missing arguments.
     Command Line Arguments:
       1. Image Folder as --dir with default value 'pet_images'
       2. CNN Model Architecture as --arch with default value 'vgg'
@@ -36,19 +36,25 @@ def get_input_args():
     Parameters:
      None - simply using argparse module to create & store command line arguments
     Returns:
-     parse_args() -data structure that stores the command line arguments object  
+     parse_args() -data structure that stores the command line arguments object
     """
     # Create Parse using ArgumentParser
     parser = argparse.ArgumentParser()
-    
+
     # Create 3 command line arguments as mentioned above using add_argument() from ArguementParser method
-    parser.add_argument('--dir', type=str, default='pet_images/',
-                        help='path to folder of images')
-    parser.add_argument('--arch', default = 'vgg', choices = ['vgg', 'alexnet', 'resnet'],
-                       help='chosen model')
-    parser.add_argument('--dogfile', default = 'dognames.txt',
-                       help='text file that has dognames')
-    
-    # Replace None with parser.parse_args() parsed argument collection that 
-    # you created with this function 
+    parser.add_argument(
+        "--dir", type=str, default="pet_images/", help="path to folder of images"
+    )
+    parser.add_argument(
+        "--arch",
+        default="vgg",
+        choices=["vgg", "alexnet", "resnet"],
+        help="chosen model",
+    )
+    parser.add_argument(
+        "--dogfile", default="dognames.txt", help="text file that has dognames"
+    )
+
+    # Replace None with parser.parse_args() parsed argument collection that
+    # you created with this function
     return parser.parse_args()
