@@ -35,6 +35,18 @@ Two optional shell scripts run all three models and save the output:
 
 Running either script generates text files (for example `resnet_pet-images.txt` or `vgg_uploaded-images.txt`) containing the program output so you can review the results later.
 
+## Running tests
+
+Unit tests live in the `tests/` directory and are executed with
+[`pytest`](https://docs.pytest.org/). After installing the project
+dependencies, run:
+
+```bash
+pytest
+```
+
+Continuous integration uses the same command to verify the core functions.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
