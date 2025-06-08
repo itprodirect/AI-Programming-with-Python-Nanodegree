@@ -1,0 +1,19 @@
+# Ignore Python bytecode and caches
+__pycache__/
+*.pyc
+
+# Ignore dataset result files
+*_uploaded-images.txt
+*_pet-images.txt
+
+# Ignore dataset folders
+pet_images/
+uploaded_images/
+
+# Ignore virtual environment directories
+venv/
+.env/
+.venv/
+env/
+ENV/
+
