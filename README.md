@@ -34,3 +34,7 @@ Two optional shell scripts run all three models and save the output:
 - `run_models_batch_uploaded.sh` processes the `uploaded_images/` directory.
 
 Running either script generates text files (for example `resnet_pet-images.txt` or `vgg_uploaded-images.txt`) containing the program output so you can review the results later.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
