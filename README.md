@@ -17,7 +17,7 @@ pip install -r requirements.txt
 
 ## Running `check_images.py`
 
-1. Place the images you want to classify in a directory (the default `pet_images/` directory is already included).
+1. Place the images you want to classify in a directory. The full training set used in the Nanodegree is not included in this repository. You can download it from [Udacity's GitHub repo](https://github.com/udacity/aipnd-project/releases/download/v0/pet_images.zip) and extract it into a directory named `pet_images/`.  A single sample image is provided in the `sample_images/` folder for quick testing.
 2. Execute `check_images.py`, choosing one of the supported model architectures (`resnet`, `alexnet`, or `vgg`):
 
 ```bash
@@ -30,8 +30,8 @@ The script will print the classification results along with summary statistics.
 
 Two optional shell scripts run all three models and save the output:
 
-- `run_models_batch.sh` processes the `pet_images/` directory.
-- `run_models_batch_uploaded.sh` processes the `uploaded_images/` directory.
+- `run_models_batch.sh` expects the full dataset to be extracted to a `pet_images/` directory.
+- `run_models_batch_uploaded.sh` processes images placed in an `uploaded_images/` directory.
 
 Running either script generates text files (for example `resnet_pet-images.txt` or `vgg_uploaded-images.txt`) containing the program output so you can review the results later.
 
