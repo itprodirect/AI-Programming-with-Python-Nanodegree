@@ -17,8 +17,10 @@
 # Imports classifier function for using pretrained CNN to classify images
 from classifier import classifier
 
-# Defines a dog test image from pet_images folder
-test_image = "pet_images/Collie_03797.jpg"
+# Defines a dog test image. A small example image is provided in
+# the `sample_images/` directory. Download the full dataset and
+# extract it to `pet_images/` if you want to experiment with more images.
+test_image = "sample_images/Collie_03797.jpg"
 
 # Defines a model architecture to be used for classification
 # NOTE: this function only works for model architectures:
