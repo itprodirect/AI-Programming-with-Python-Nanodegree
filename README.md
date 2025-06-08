@@ -5,13 +5,14 @@ This project classifies pet images using pretrained convolutional neural network
 ## Prerequisites
 
 - Python 3.6 or higher
-- [PyTorch](https://pytorch.org) and torchvision
+- [PyTorch](https://pytorch.org) and torchvision (tested with
+  `torch` 2.0.1 and `torchvision` 0.15.2)
 - Pillow
 
 Install the dependencies with:
 
 ```bash
-pip install torch torchvision pillow
+pip install -r requirements.txt
 ```
 
 ## Running `check_images.py`
