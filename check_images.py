@@ -48,25 +48,25 @@ def main():
     # Function that checks command line arguments using in_arg
     check_command_line_arguments(in_arg)
 
-    # Insert new comment here
+# Creates a dictionary of pet labels from filenames
     results = get_pet_labels(in_arg.dir)
 
     # Function that checks Pet Images in the results Dictionary using results
     check_creating_pet_image_labels(results)
 
-    # insert new comment here
+# Classifies pet images using the chosen CNN model
     classify_images(in_arg.dir, results, in_arg.arch)
 
     # Function that checks Results Dictionary using results
     check_classifying_images(results)
 
-    # insert new comment here
+# Adjusts the results to determine if the classifier recognizes dogs
     adjust_results4_isadog(results, in_arg.dogfile)
 
     # Function that checks Results Dictionary for is-a-dog adjustment using results
     check_classifying_labels_as_dogs(results)
 
-    # insert new comment here
+# Calculates summary statistics for the classification results
     results_stats = calculates_results_stats(results)
 
     # Function that checks Results Statistics Dictionary using results_stats
