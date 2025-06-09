@@ -15,6 +15,19 @@ Install the dependencies with:
 pip install -r requirements.txt
 ```
 
+## Dataset
+
+The project expects an image directory called `pet_images/` containing labeled
+dog and cat photos. Udacity supplies a ready-made archive for the Nanodegree on
+their [aipnd-project release page](https://github.com/udacity/aipnd-project/releases/download/v0/pet_images.zip).
+Download the file and extract it so `pet_images/` lives at the repository root or
+specify a different directory with the `--dir` argument.
+
+The archive includes a brief README describing the origin of the images. The
+data is redistributed for educational use and inherits the license or attribution
+requirements from the underlying datasets. Review the included documentation if
+you intend to use the images outside this course.
+
 ## Running `check_images.py`
 
 1. Place the images you want to classify in a directory. The full training set used in the Nanodegree is not included in this repository. You can download it from [Udacity's GitHub repo](https://github.com/udacity/aipnd-project/releases/download/v0/pet_images.zip) and extract it into a directory named `pet_images/`.  A single sample image is provided in the `sample_images/` folder for quick testing.
