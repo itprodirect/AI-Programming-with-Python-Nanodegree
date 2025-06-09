@@ -60,6 +60,12 @@ pytest
 
 Continuous integration uses the same command to verify the core functions.
 
+## Contributing
+
+We welcome pull requests! Please read our [CONTRIBUTING.md](CONTRIBUTING.md)
+guide for details on the workflow, coding standards, and how to run the tests
+locally.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
