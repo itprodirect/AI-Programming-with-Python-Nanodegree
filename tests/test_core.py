@@ -23,6 +23,8 @@ def test_classifier_stub(monkeypatch):
             return self
         def requires_grad_(self, flag):
             return self
+        def argmax(self):
+            return types.SimpleNamespace(item=lambda: 1)
 
     def dummy_preprocess(img):
         return DummyTensor()
@@ -47,13 +49,29 @@ def test_classifier_stub(monkeypatch):
         vgg16=lambda pretrained=True: DummyModel(),
     )
 
+    class DummyNoGrad:
+        def __enter__(self):
+            pass
+
+        def __exit__(self, exc_type, exc, tb):
+            pass
+
     torch_stub = types.SimpleNamespace(
         __version__="1.0.0",
         autograd=types.SimpleNamespace(Variable=object),
+        no_grad=lambda: DummyNoGrad(),
     )
 
     torchvision_stub = types.SimpleNamespace(transforms=transforms_stub, models=models_stub)
-    image_stub = types.SimpleNamespace(open=lambda path: object())
+
+    class DummyImage:
+        def __enter__(self):
+            return object()
+
+        def __exit__(self, exc_type, exc, tb):
+            pass
+
+    image_stub = types.SimpleNamespace(open=lambda path: DummyImage())
 
     monkeypatch.setitem(sys.modules, 'PIL', types.SimpleNamespace(Image=image_stub))
     monkeypatch.setitem(sys.modules, 'PIL.Image', image_stub)
