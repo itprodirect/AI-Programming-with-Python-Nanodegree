@@ -10,11 +10,14 @@ from torch.autograd import Variable
 import torchvision.models as models
 from torch import __version__
 
-resnet18 = models.resnet18(pretrained=True)
-alexnet = models.alexnet(pretrained=True)
-vgg16 = models.vgg16(pretrained=True)
+MODEL_LOADERS = {
+    "resnet": lambda: models.resnet18(pretrained=True),
+    "alexnet": lambda: models.alexnet(pretrained=True),
+    "vgg": lambda: models.vgg16(pretrained=True),
+}
 
-models = {"resnet": resnet18, "alexnet": alexnet, "vgg": vgg16}
+# cache for instantiated models
+LOADED_MODELS = {}
 
 # obtain ImageNet labels
 with open("imagenet1000_clsid_to_human.txt") as imagenet_classes_file:
@@ -59,8 +62,13 @@ def classifier(img_path, model_name):
         # wrap input in variable
         data = Variable(img_tensor, volatile=True)
 
-    # apply model to input
-    model = models[model_name]
+    # obtain model, instantiate if necessary
+    if model_name not in LOADED_MODELS:
+        loader = MODEL_LOADERS.get(model_name)
+        if loader is None:
+            raise ValueError(f"Unknown model: {model_name}")
+        LOADED_MODELS[model_name] = loader()
+    model = LOADED_MODELS[model_name]
 
     # puts model in evaluation mode
     # instead of (default)training mode
