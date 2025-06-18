@@ -26,4 +26,7 @@ flake8 .
 pytest
 ```
 
+The linter reads its configuration from `.flake8`, which sets `max-line-length`
+to `120` and excludes `print_functions_for_lab_checks.py`.
+
 Your pull request should pass both flake8 and pytest without errors.
