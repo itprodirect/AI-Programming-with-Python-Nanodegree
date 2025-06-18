@@ -4,6 +4,7 @@ Defines the classifier() function that returns a label for an image.
 """
 
 import ast
+from pathlib import Path
 from PIL import Image
 import torchvision.transforms as transforms
 import torchvision.models as models
@@ -18,8 +19,9 @@ MODEL_LOADERS = {
 # cache for instantiated models
 LOADED_MODELS = {}
 
-# obtain ImageNet labels
-with open("imagenet1000_clsid_to_human.txt") as imagenet_classes_file:
+# obtain ImageNet labels relative to this file's location
+IMAGENET_FILE = Path(__file__).resolve().with_name("imagenet1000_clsid_to_human.txt")
+with IMAGENET_FILE.open() as imagenet_classes_file:
     imagenet_classes_dict = ast.literal_eval(imagenet_classes_file.read())
 
 
